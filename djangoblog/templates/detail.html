@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h1>Our Products</h1>
+    
+    <div class="row">
+        
+        <div class="col-md-12">
+                        {%if object.image %}
+                        <img src="{{object.image}}">  
+                        {% endif  %}
+                <div class="card">
+                        
+                        <div class="card-header">
+                                {{object.title}}
+                        </div>
+                        <div class="card-body">
+                          <h5 class="card-title">Date Published: {{object.publish_date}}</h5>
+                          <p class="card-text">{{object.content|linebreaks}}</p>
+                        {%if user.is_authenticated%}
+                        {% if user.is_staff %}
+                        <a class="btn btn-primary" href="{{object.get_edit_url}}" role="button">Edit</a>
+                        <a class="btn btn-danger" href="{{object.get_delete_url}}" role="button">Delete</a>
+                        {%endif%}
+                        {%endif%}
+                        </div>
+                </div>
+
+              
+        </div>
+       
+    </div>
+    
+
+{% endblock %}

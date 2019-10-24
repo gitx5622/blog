@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+                <h1>Our BlogPosts</h1>
+            {%for object in object_list %}
+            <li class="list-group-item"><a href='{{object.get_absolute_url}}'>{{object.title}}</a></li>
+            {%endfor%}
+        </div>
+        </div>
+            
+    </div>
+    
+
+{% endblock %}
